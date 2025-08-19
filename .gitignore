@@ -1,0 +1,103 @@
+## .NET ##
+*.csproj.user
+*.userprefs
+*.suo
+*.cache
+*.nupkg
+*.nuspec
+packages/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+
+# Visual Studio
+.vs/
+.vscode/
+_ReSharper.*/
+*.sln.iml
+*.sw?
+
+# Azure
+[Aa]zure/
+
+# MSTest
+*.trx
+*.TestSettings
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# NuGet
+.nuget/
+NuGet.exe
+*.dotCover
+
+# Rider
+.idea/
+*.sln.iml
+
+# Coverage
+coverage.xml
+coverage.json
+*.coverage
+*.lcov
+
+# Build Server
+[Bb]uild/
+[Tt]emp/
+
+# Editor
+*.sublime-*
+*.komodoproject
+
+# Database
+*.mdf
+*.ldf
+
+# Backup
+*.bak
+*.tmp
+*.temp
+
+# Logs
+*.log
+*.etl
+
+# OS generated files
+[Tt]humbs.db
+$RECYCLE.BIN/
+
+# Project specific
+appsettings.Development.json
+.env
+*.secrets.json
+
+# Visual Studio Code
+.history/
+EOF
