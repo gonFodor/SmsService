@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\SmsService.Api.props" />
-</Project>
