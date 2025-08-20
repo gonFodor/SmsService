@@ -1,4 +1,5 @@
 using System.Threading.RateLimiting;
+using SmsService.Api.Services.RateLimiter.Models;
 
 namespace SmsService.Api.Services.RateLimiter
 {

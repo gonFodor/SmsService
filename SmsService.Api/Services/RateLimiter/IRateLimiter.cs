@@ -1,3 +1,5 @@
+using SmsService.Api.Services.RateLimiter.Models;
+
 namespace SmsService.Api.Services.RateLimiter
 {
     public interface IRateLimiter
