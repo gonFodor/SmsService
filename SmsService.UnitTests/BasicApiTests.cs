@@ -1,18 +1,22 @@
 using Microsoft.AspNetCore.Mvc.Testing;
+using System;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace SmsService.UnitTests;
 
-public class BasicApiTests : IClassFixture<WebApplicationFactory<Program>>
+public class BasicApiTests : IClassFixture<TestWebApplicationFactory>
 {
     private readonly HttpClient _client;
 
-    public BasicApiTests(WebApplicationFactory<Program> factory)
+    public BasicApiTests(TestWebApplicationFactory factory)
     {
         _client = factory.CreateClient(new WebApplicationFactoryClientOptions
         {
-            AllowAutoRedirect = false
+            AllowAutoRedirect = false,
+            BaseAddress = new Uri("http://localhost")
         });
     }
 

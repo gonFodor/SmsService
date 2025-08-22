@@ -4,16 +4,24 @@ using SmsService.Api.Contracts.Requests;
 using SmsService.Api.Services.RateLimiter;
 using SmsService.Api.Services.RateLimiter.Models;
 
-
-namespace SmsService.Api.Presentation
+namespace SmsService.Api.Presentation.Handlers
 {
+    /// <summary>
+    /// Обработчики эндпоинтов для работы с SMS
+    /// </summary>
     public static class SmsHandler
     {
+        /// <summary>
+        /// Регистрирует эндпоинты для работы с SMS
+        /// </summary>
         public static void MapSmsEndpoints(this WebApplication app)
         {
             app.MapPost("/api/sms/send", SendAsync);
         }
 
+        /// <summary>
+        /// Обрабатывает запрос на отправку SMS сообщений
+        /// </summary>
         private static async Task<Results<Ok<SendSmsResponse>, ValidationProblem, ProblemHttpResult>> SendAsync(
             SendSmsRequest request,
             RateLimiterService rateLimiterService,
@@ -40,7 +48,7 @@ namespace SmsService.Api.Presentation
                     statusCode: StatusCodes.Status429TooManyRequests,
                     extensions: new Dictionary<string, object?>
                     {
-                    { "remainingQuota", limitResult.RemainingQuota }
+                        { "remainingQuota", limitResult.RemainingQuota }
                     });
             }
 
@@ -53,6 +61,5 @@ namespace SmsService.Api.Presentation
                 RemainingQuota = limitResult.RemainingQuota
             });
         }
-
     }
 }

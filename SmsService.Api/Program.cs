@@ -1,5 +1,5 @@
 using SmsService.Api.Config;
-using SmsService.Api.Presentation;
+using SmsService.Api.Presentation.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 

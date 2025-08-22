@@ -3,13 +3,18 @@ using SmsService.Api.Services.RateLimiter.Models;
 
 namespace SmsService.Api.Services.RateLimiter
 {
-
+    /// <summary>
+    /// In-memory реализаци€ rate limiting с использованием потокобезопасных коллекций
+    /// </summary>
     public sealed class InMemoryRateLimiter : IRateLimiter
     {
         private const int DailyLimit = 100;
         private readonly ConcurrentDictionary<Guid, int> _counters = new();
         private readonly ConcurrentDictionary<Guid, SemaphoreSlim> _userLocks = new();
 
+        /// <summary>
+        /// ѕытаетс€ уменьшить счетчик лимита дл€ пользовател€
+        /// </summary>
         public async Task<RateLimitResult> TryDecrementAsync(Guid userId, int count)
         {
             if (count <= 0)
@@ -34,6 +39,9 @@ namespace SmsService.Api.Services.RateLimiter
             }
         }
 
+        /// <summary>
+        /// —брасывает все счетчики лимитов
+        /// </summary>
         public Task ResetAllAsync()
         {
             _counters.Clear();
