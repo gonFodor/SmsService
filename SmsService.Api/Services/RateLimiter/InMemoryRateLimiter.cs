@@ -4,7 +4,7 @@ using SmsService.Api.Services.RateLimiter.Models;
 namespace SmsService.Api.Services.RateLimiter
 {
     /// <summary>
-    /// In-memory реализация rate limiting с использованием потокобезопасных коллекций
+    /// In-memory СЂРµР°Р»РёР·Р°С†РёСЏ РјРµС…Р°РЅРёР·РјР° РѕРіСЂР°РЅРёС‡РµРЅРёСЏ Р·Р°РїСЂРѕСЃРѕРІ
     /// </summary>
     public sealed class InMemoryRateLimiter : IRateLimiter
     {
@@ -13,7 +13,7 @@ namespace SmsService.Api.Services.RateLimiter
         private readonly ConcurrentDictionary<Guid, SemaphoreSlim> _userLocks = new();
 
         /// <summary>
-        /// Пытается уменьшить счетчик лимита для пользователя
+        /// РџС‹С‚Р°РµС‚СЃСЏ СѓРјРµРЅСЊС€РёС‚СЊ СЃС‡РµС‚С‡РёРє Р»РёРјРёС‚Р° РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         /// </summary>
         public async Task<RateLimitResult> TryDecrementAsync(Guid userId, int count)
         {
@@ -40,7 +40,7 @@ namespace SmsService.Api.Services.RateLimiter
         }
 
         /// <summary>
-        /// Сбрасывает все счетчики лимитов
+        /// РЎР±СЂР°СЃС‹РІР°РµС‚ РІСЃРµ СЃС‡РµС‚С‡РёРєРё Р»РёРјРёС‚РѕРІ
         /// </summary>
         public Task ResetAllAsync()
         {

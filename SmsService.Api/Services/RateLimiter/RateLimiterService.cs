@@ -4,33 +4,33 @@ using SmsService.Api.Services.RateLimiter.Models;
 namespace SmsService.Api.Services.RateLimiter
 {
     /// <summary>
-    /// Сервис для проверки и управления лимитами отправки SMS сообщений
+    /// РЎРµСЂРІРёСЃ РґР»СЏ РїСЂРѕРІРµСЂРєРё Рё СѓРїСЂР°РІР»РµРЅРёСЏ Р»РёРјРёС‚Р°РјРё РѕС‚РїСЂР°РІРєРё SMS СЃРѕРѕР±С‰РµРЅРёР№
     /// </summary>
     public class RateLimiterService
     {
         private readonly IRateLimiter _rateLimiter;
 
         /// <summary>
-        /// Инициализирует новый экземпляр сервиса управления лимитами
+        /// РРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ РЅРѕРІС‹Р№ СЌРєР·РµРјРїР»СЏСЂ СЃРµСЂРІРёСЃР° СѓРїСЂР°РІР»РµРЅРёСЏ Р»РёРјРёС‚Р°РјРё
         /// </summary>
-        /// <param name="rateLimiter">Реализация интерфейса ограничения запросов</param>
+        /// <param name="rateLimiter">Р РµР°Р»РёР·Р°С†РёСЏ РёРЅС‚РµСЂС„РµР№СЃР° РѕРіСЂР°РЅРёС‡РµРЅРёСЏ Р·Р°РїСЂРѕСЃРѕРІ</param>
         public RateLimiterService(IRateLimiter rateLimiter)
         {
             _rateLimiter = rateLimiter;
         }
 
         /// <summary>
-        /// Проверяет возможность отправки указанного количества SMS сообщений для пользователя
+        /// РџСЂРѕРІРµСЂСЏРµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РѕС‚РїСЂР°РІРєРё СѓРєР°Р·Р°РЅРЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° SMS СЃРѕРѕР±С‰РµРЅРёР№ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         /// </summary>
-        /// <param name="userId">Уникальный идентификатор пользователя</param>
-        /// <param name="requestedCount">Запрашиваемое количество SMS сообщений для отправки</param>
+        /// <param name="userId">РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</param>
+        /// <param name="requestedCount">Р—Р°РїСЂР°С€РёРІР°РµРјРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ SMS СЃРѕРѕР±С‰РµРЅРёР№ РґР»СЏ РѕС‚РїСЂР°РІРєРё</param>
         /// <returns>
-        /// Результат проверки лимита, содержащий информацию о разрешении операции
-        /// и оставшемся количестве доступных сообщений
+        /// Р РµР·СѓР»СЊС‚Р°С‚ РїСЂРѕРІРµСЂРєРё Р»РёРјРёС‚Р°, СЃРѕРґРµСЂР¶Р°С‰РёР№ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЂР°Р·СЂРµС€РµРЅРёРё РѕРїРµСЂР°С†РёРё
+        /// Рё РѕСЃС‚Р°РІС€РµРјСЃСЏ РєРѕР»РёС‡РµСЃС‚РІРµ РґРѕСЃС‚СѓРїРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
         /// </returns>
-        /// <exception cref="ArgumentException">Если requestedCount отрицательное число</exception>
+        /// <exception cref="ArgumentException">Р•СЃР»Рё requestedCount РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ</exception>
         /// <example>
-        /// Пример использования:
+        /// РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ:
         /// <code>
         /// var result = await rateLimiterService.CheckLimitAsync(userId, phoneNumbers.Length);
         /// if (!result.IsAllowed) return Results.TooManyRequests();

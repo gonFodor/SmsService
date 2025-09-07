@@ -1,7 +1,7 @@
 namespace SmsService.Api.Services.RateLimiter.Models
 {
     /// <summary>
-    /// Результат проверки лимита отправки SMS
+    /// Р РµР·СѓР»СЊС‚Р°С‚ РїСЂРѕРІРµСЂРєРё Р»РёРјРёС‚Р° РѕС‚РїСЂР°РІРєРё SMS
     /// </summary>
     public record RateLimitResult(bool IsAllowed, int RemainingQuota);
 }
